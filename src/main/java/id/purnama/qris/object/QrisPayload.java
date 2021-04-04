@@ -3,6 +3,7 @@ package id.purnama.qris.object;
 import id.purnama.qris.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.Size;
@@ -10,6 +11,7 @@ import java.util.Map;
 
 @CheckSum
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class QrisPayload {

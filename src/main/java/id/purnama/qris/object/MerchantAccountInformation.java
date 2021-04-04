@@ -12,7 +12,7 @@ import lombok.Setter;
 public class MerchantAccountInformation {
 
     private String globallyUniqueIdentifier;
-    private Integer personalAccountNumber;
+    private String personalAccountNumber;
     private String merchantId;
     private MerchantCriteria criteria;
 

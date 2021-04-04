@@ -16,8 +16,15 @@ import java.util.Map;
 public class QrisParser {
 
     public QrisPayload parse(String qris) {
+        QrisPayload qrisPayload = new QrisPayload();
+        qrisPayload.setPayload(qris);
+        parse(qrisPayload);
+        return qrisPayload;
+    }
+
+    public void parse(QrisPayload payload) {
         Map<Integer, QrisDataObject> qrisMap = new LinkedHashMap<>();
-        parseRoot(qris, qrisMap);
+        parseRoot(payload.getPayload(), qrisMap);
         parseMerchantAccountInformationTemplate(qrisMap);
         parseMerchantDomesticRepository(qrisMap);
         parseAdditionalDataFieldTemplate(qrisMap);
@@ -25,7 +32,7 @@ public class QrisParser {
         if(qrisMap.containsKey(62)){
             parseProprietaryDataTemplate(qrisMap.get(62).getTemplateMap());
         }
-        return new QrisPayload(qris, qrisMap);
+        payload.setQrisRoot(qrisMap);
     }
 
     public Qris map(Map<Integer, QrisDataObject> payload) {
@@ -96,7 +103,7 @@ public class QrisParser {
 
     private void mapCountryCode(Map<Integer, QrisDataObject> payload, Qris object) {
         for(Locale locale : Locale.getAvailableLocales()) {
-            if(locale.getISO3Country().equals(payload.get(58).getValue())) {
+            if(locale.getCountry().equals(payload.get(58).getValue())) {
                 object.setCountryCode(locale);
             }
         }
@@ -132,7 +139,7 @@ public class QrisParser {
                 Map<Integer, QrisDataObject> merchantAccountInformationMap = payload.get(i).getTemplateMap();
                 MerchantAccountInformation merchantAccountInformation = new MerchantAccountInformation();
                 merchantAccountInformation.setGloballyUniqueIdentifier(merchantAccountInformationMap.get(0).getValue());
-                merchantAccountInformation.setPersonalAccountNumber(Integer.valueOf(merchantAccountInformationMap.get(1).getValue()));
+                merchantAccountInformation.setPersonalAccountNumber(merchantAccountInformationMap.get(1).getValue());
                 merchantAccountInformation.setMerchantId(merchantAccountInformationMap.get(2).getValue());
                 merchantAccountInformation.setCriteria(MerchantCriteria.valueOf(merchantAccountInformationMap.get(3).getValue()));
                 if(object.getMerchantAccountInformationDomestics() == null){
