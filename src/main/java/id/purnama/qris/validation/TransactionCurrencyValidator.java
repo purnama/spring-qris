@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.TransactionCurrency;
 
 import javax.validation.ConstraintValidator;
@@ -20,10 +20,8 @@ public class TransactionCurrencyValidator implements ConstraintValidator<Transac
 
         Set<Currency> availableCurrencies = Currency.getAvailableCurrencies();
         for (Currency currency : availableCurrencies) {
-            if (currency.getNumericCodeAsString().equals(value.get(53).getValue())) {
-                if ("ID".equals(value.get(58).getValue())) {
-                    return ("360".equals(value.get(53).getValue())) ? true : false;
-                }
+            if (currency.getNumericCodeAsString().equals(value.get(53).getValue()) && "ID".equals(value.get(58).getValue())) {
+                return "360".equals(value.get(53).getValue());
             }
         }
         return false;

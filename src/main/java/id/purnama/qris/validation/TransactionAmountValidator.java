@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.TransactionAmount;
 
 import javax.validation.ConstraintValidator;
@@ -32,8 +32,8 @@ public class TransactionAmountValidator implements ConstraintValidator<Transacti
     public boolean isValid(Map<Integer, QrisDataObject> value, ConstraintValidatorContext context) {
         if(value.get(this.id) != null && isValidAmount(value.get(this.id).getValue())) {
             try {
-                Double amount = Double.valueOf(value.get(this.id).getValue());
-                return (amount > 0) ? true : false;
+                double amount = Double.parseDouble(value.get(this.id).getValue());
+                return amount > 0;
             } catch (NumberFormatException ex) {
                 return false;
             }

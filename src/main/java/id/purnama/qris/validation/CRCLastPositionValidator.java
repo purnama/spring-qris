@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.CRCLastPosition;
 
 import javax.validation.ConstraintValidator;

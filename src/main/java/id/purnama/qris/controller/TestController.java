@@ -1,6 +1,6 @@
 package id.purnama.qris.controller;
 
-import id.purnama.qris.QrisPayload;
+import id.purnama.qris.object.QrisPayload;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -39,7 +39,7 @@ public class TestController {
     @GetMapping(value = "/parse", produces = {"application/qris", MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public QrisPayload parseGet(@RequestParam QrisPayload payload){
         Set<ConstraintViolation<QrisPayload>> violationSet = validator.validate(payload);
-        if (violationSet.size() > 0 ) throw new ConstraintViolationException(violationSet);
+        if (!violationSet.isEmpty() ) throw new ConstraintViolationException(violationSet);
         return payload;
     }
 
@@ -49,7 +49,7 @@ public class TestController {
     }
 
     @GetMapping("config")
-    public Map<?, ?> config() {
+    public Map<Object, Object> config() {
         return Map.of(
                 "configurers", toStrings(configurers),
                 "converters", toStrings(converters),

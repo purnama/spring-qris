@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.TipValuePercentage;
 
 import javax.validation.ConstraintValidator;
@@ -15,7 +15,7 @@ public class TipValuePercentageValidator implements ConstraintValidator<TipValue
     @Override
     public boolean isValid(Map<Integer, QrisDataObject> value, ConstraintValidatorContext context) {
         if (value.get(57) != null) {
-            Double amount = Double.valueOf(value.get(57).getValue());
+            double amount = Double.parseDouble(value.get(57).getValue());
             return amount > 0 && amount < 100;
         }
         return true;

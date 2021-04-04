@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisPayload;
+import id.purnama.qris.object.QrisPayload;
 import id.purnama.qris.validation.constraints.CheckSum;
 
 import javax.validation.ConstraintValidator;

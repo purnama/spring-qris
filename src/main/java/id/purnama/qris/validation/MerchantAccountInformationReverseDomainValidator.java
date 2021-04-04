@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.MerchantAccountInformationReverseDomain;
 
 import javax.validation.ConstraintValidator;
@@ -18,10 +18,8 @@ public class MerchantAccountInformationReverseDomainValidator implements Constra
 
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
-        if(value.getIntId() > 25 && value.getIntId() < 52){
-            if(!"00".equals(value.getTemplateMap().get(0).getValue())) {
-                return isValidDomain(reverseDomainNameString(value.getTemplateMap().get(0).getValue()));
-            }
+        if (value.getIntId() > 25 && value.getIntId() < 52 && !"00".equals(value.getTemplateMap().get(0).getValue())) {
+            return isValidDomain(reverseDomainNameString(value.getTemplateMap().get(0).getValue()));
         }
         return true;
     }
@@ -32,12 +30,9 @@ public class MerchantAccountInformationReverseDomainValidator implements Constra
         return String.join(".", components.toArray(new String[0]));
     }
 
-    private boolean isValidDomain(String str)
-    {
+    private boolean isValidDomain(String str) {
         // Regex to check valid domain name.
-        String regex = "^((?!-)[A-Za-z0-9-]"
-                + "{1,63}(?<!-)\\.)"
-                + "+[A-Za-z]{2,6}";
+        String regex = "^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\\.[a-zA-Z]{2,}$";
 
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(str);

@@ -1,5 +1,6 @@
 package id.purnama.qris;
 
+import id.purnama.qris.object.QrisPayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
@@ -15,7 +16,7 @@ public class QrisConfiguration implements WebMvcConfigurer {
     private static final MediaType QRIS_VALUE = MediaType.valueOf("application/qris");
 
     @Autowired
-    private id.purnama.qris.QrisStringConverter qrisStringConverter;
+    private id.purnama.qris.QrisStringToPayloadConverter qrisStringToPayloadConverter;
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -28,6 +29,6 @@ public class QrisConfiguration implements WebMvcConfigurer {
     }
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(this.qrisStringConverter);
+        registry.addConverter(this.qrisStringToPayloadConverter);
     }
 }

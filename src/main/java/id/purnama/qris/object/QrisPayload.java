@@ -1,4 +1,4 @@
-package id.purnama.qris;
+package id.purnama.qris.object;
 
 import id.purnama.qris.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -63,5 +63,5 @@ public class QrisPayload {
     @IdNotNull(id = 59)
     @IdNotNull(id = 60)
     @PostalCode
-    private Map<Integer, id.purnama.qris.QrisDataObject> qrisRoot;
+    private Map<Integer, QrisDataObject> qrisRoot;
 }

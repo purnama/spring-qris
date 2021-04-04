@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.MerchantNameAlternateLanguage;
 
 import javax.validation.ConstraintValidator;
@@ -11,7 +11,7 @@ public class MerchantNameAlternateLanguageValidator implements ConstraintValidat
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
         if(value.getIntId().equals(64)){
-            return value.getTemplateMap().get(1) != null ? true : false;
+            return value.getTemplateMap().get(1) != null;
         }
         return true;
     }

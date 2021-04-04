@@ -1,0 +1,19 @@
+package id.purnama.qris.object;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Map;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class AdditionalData {
+
+    private Map<Integer, String> dataObjects;
+    private String consumerDataRequest;
+    private ProprietaryDomestic proprietaryDomestic;
+}

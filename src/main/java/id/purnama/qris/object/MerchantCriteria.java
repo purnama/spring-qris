@@ -1,4 +1,4 @@
-package id.purnama.qris;
+package id.purnama.qris.object;
 
 /**
  * Tabel 4.6: Data object turunan Merchant Criteria (IDs "03")
@@ -16,6 +16,6 @@ package id.purnama.qris;
  *</table>
  * Jika ID”03” tidak tersedia maka Penerbit wajib mengisi nilai default “URE” dalam message transaksi.
  */
-public enum QrisMerchantCriteria {
+public enum MerchantCriteria {
     UMI, UKE, UME, UBE, URE
 }

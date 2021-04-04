@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.MerchantAccountInformationMandatoryField;
 
 import javax.validation.ConstraintValidator;
@@ -22,7 +22,7 @@ public class MerchantAccountInformationMandatoryFieldValidator implements Constr
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
         if(value.getIntId() >= this.from && value.getIntId() <= this.to){
-            return this.id == value.getTemplateMap().get(Integer.valueOf(this.id)).getIntId();
+            return this.id == value.getTemplateMap().get(this.id).getIntId();
         }
         return true;
     }

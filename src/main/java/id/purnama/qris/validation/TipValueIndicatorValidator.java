@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.TipValueIndicator;
 
 import javax.validation.ConstraintValidator;
@@ -23,14 +23,16 @@ public class TipValueIndicatorValidator implements ConstraintValidator<TipValueI
     public boolean isValid(Map<Integer, QrisDataObject> value, ConstraintValidatorContext context) {
         if (value.get(55) != null) {
             String valStr = value.get(55).getValue();
-            if ("01".equals(valStr)) {
-                return true;
-            } else if ("02".equals(valStr)) {
-                return value.get(56) != null ? true : false;
-            } else if ("03".equals(valStr)) {
-                return value.get(57) != null ? true : false;
+            switch (valStr) {
+                case "01":
+                    return true;
+                case "02":
+                    return value.get(56) != null;
+                case "03":
+                    return value.get(57) != null;
+                default:
+                    return false;
             }
-            return false;
         }
         return true;
     }

@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.AdditionalDataFieldAsterisk;
 
 import javax.validation.ConstraintValidator;
@@ -13,10 +13,8 @@ public class ProprietaryDomesticDataValidator implements ConstraintValidator<Add
 
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
-        if(value.getIntId().equals(62)){
-            if(value.getTemplateMap().containsKey(99)){
-                return value.getTemplateMap().get(99).getValue().length() <= 91;
-            }
+        if (value.getIntId().equals(62) && value.getTemplateMap().containsKey(99)) {
+            return value.getTemplateMap().get(99).getValue().length() <= 91;
         }
         return true;
     }

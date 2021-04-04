@@ -1,4 +1,4 @@
-package id.purnama.qris;
+package id.purnama.qris.object;
 
 import id.purnama.qris.validation.constraints.*;
 import lombok.Getter;
@@ -49,17 +49,17 @@ import java.util.Map;
  * <b>4.7.5.3</b> Reverse Domain pada ID “26”-“45” dengan sub ID “00” harus memiliki nilai default “00” atau dapat berisi informasi reverse domain-nya.
  */
 @LengthValue
-@MerchantAccountInformationMandatoryField(from = 26, to = 45, id=0)
+@MerchantAccountInformationMandatoryField(from = 26, to = 45)
 @MerchantAccountInformationMandatoryField(from = 26, to = 45, id=1)
 @MerchantAccountInformationMandatoryField(from = 26, to = 45, id=2)
 @MerchantAccountInformationMandatoryField(from = 26, to = 45, id=3)
-@MerchantAccountInformationMandatoryField(from = 51, to = 51, id=0)
+@MerchantAccountInformationMandatoryField(from = 51, to = 51)
 @MerchantAccountInformationMandatoryField(from = 51, to = 51, id=2)
-@MerchantAccountInformationCharLength(from = 26, to = 45, id=0, max = 32)
+@MerchantAccountInformationCharLength(from = 26, to = 45, max = 32)
 @MerchantAccountInformationCharLength(from = 26, to = 45, id=1, max = 19)
 @MerchantAccountInformationCharLength(from = 26, to = 45, id=2, max = 15)
 @MerchantAccountInformationCharLength(from = 26, to = 45, id=3, min=3, max = 3)
-@MerchantAccountInformationCharLength(from = 51, to = 51, id=0, max = 32)
+@MerchantAccountInformationCharLength(from = 51, to = 51, max = 32)
 @MerchantAccountInformationCharLength(from = 51, to = 51, id=2, max = 15)
 @MerchantAccountInformationPanIsNumber
 @MerchantAccountInformationReverseDomain

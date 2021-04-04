@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.AdditionalConsumerDataRequest;
 
 import javax.validation.ConstraintValidator;
@@ -13,7 +13,6 @@ public class AdditionalConsumerDataRequestValidator implements ConstraintValidat
 
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
-        //TODO : What should we do here?
         return true;
     }
 }

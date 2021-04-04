@@ -1,6 +1,6 @@
 package id.purnama.qris.validation;
 
-import id.purnama.qris.QrisDataObject;
+import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.MerchantAccountInformationCharLength;
 
 import javax.validation.ConstraintValidator;
@@ -28,9 +28,9 @@ public class MerchantAccountInformationCharLengthValidator implements Constraint
 
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
-        if (value.getIntId() > 25 && value.getIntId() < 52) {
+        if (value.getIntId() >= this.from && value.getIntId() <= this.to) {
             return value.getTemplateMap().get(id).getIntLength() >= this.min &&
-                    value.getTemplateMap().get(id).getIntLength() <= max ? true : false;
+                    value.getTemplateMap().get(id).getIntLength() <= this.max;
         }
         return true;
     }
