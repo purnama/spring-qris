@@ -1,5 +1,6 @@
 package id.purnama.qris.controller;
 
+import id.purnama.qris.QrisParser;
 import id.purnama.qris.object.Qris;
 import id.purnama.qris.object.QrisPayload;
 import lombok.AllArgsConstructor;
@@ -33,17 +34,20 @@ public class TestController {
     @Autowired
     private Validator validator;
 
+    @Autowired
+    private QrisParser qrisParser;
+
     @GetMapping(value = "/qris", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public QrisPayload parseMap(@Valid QrisPayload payload){
         return payload;
     }
 
     @GetMapping(value = "/qris/object", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public Qris parseObject(Qris payload){
-        return payload;
+    public Qris parseObject(@Valid QrisPayload payload){
+        return qrisParser.map(payload.getQrisRoot());
     }
 
-    @PostMapping(value = "/qris", consumes = "application/qris", produces = {"application/qris", "application/json"})
+    @PostMapping(value = "/qris", consumes = "application/qris", produces = {"application/qris", "application/json", "application/xml",})
     public QrisPayload parsePost(@RequestBody @Valid QrisPayload payload){
         return payload;
     }

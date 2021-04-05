@@ -1,13 +1,17 @@
 package id.purnama.qris;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
+import org.springframework.util.Assert.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.zip.CRC32;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 //@SpringBootTest
 class SpringQrisApplicationTests {
+
     @Test
     void contextLoads() {
         String qris =
@@ -50,16 +54,23 @@ class SpringQrisApplicationTests {
         qrisParser.parse(qris);
         CRC32 crc32 = new CRC32();
         crc32.update(qrisCrc.getBytes(StandardCharsets.UTF_8));
-        Assert.isTrue("455C".equals(Long.toHexString(crc32.getValue())));
+        assertEquals("455C", Long.toHexString(crc32.getValue()));
 
     }
 
     @Test
     void qrisTest(){
-        String qris = "00020101021226530012COM.DOKU.WWW0118936008990000002475020424750303URE51440014ID.CO.QRIS.WWW0215ID10200392934820303URE5204539953033605404100055020256035005802ID5911GUREUM SHOP6013JAKARTA PUSAT61051064062070703A016304FD26";
-
+        String qris = "00020101021126630014ID.SPINPAY.WWW011893600816343100062402121314310006240303UMI51440014ID.CO.QRIS.WWW0215ID10200384314890303UMI5204839853033605802ID5904SPIN6013Jakarta Pusat61051034062140103***0703A0163045CDD";
         QrisParser qrisParser = new QrisParser();
-
         qrisParser.parse(qris);
+        assertTrue(true);
+    }
+
+    @Test
+    void qrisTest2(){
+        String qris = "00020101021226530012COM.DOKU.WWW0118936008990000002475020424750303URE51440014ID.CO.QRIS.WWW0215ID10200392934820303URE5204539953033605404100055020256035005802ID5911GUREUM SHOP6013JAKARTA PUSAT61051064062070703A016304FD26";
+        QrisParser qrisParser = new QrisParser();
+        qrisParser.parse(qris);
+        assertTrue(true);
     }
 }

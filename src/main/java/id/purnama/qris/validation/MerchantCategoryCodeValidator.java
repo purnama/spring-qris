@@ -1,5 +1,6 @@
 package id.purnama.qris.validation;
 
+import id.purnama.qris.MerchantCategoryCodes;
 import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.MerchantCategoryCode;
 
@@ -16,9 +17,9 @@ public class MerchantCategoryCodeValidator implements ConstraintValidator<Mercha
     @Override
     public boolean isValid(Map<Integer, QrisDataObject> value, ConstraintValidatorContext context) {
         try {
-            Integer.parseInt(value.get(52).getValue());
+            MerchantCategoryCodes.Iso18245MerchantCategoryCode.valueOf(Integer.parseInt(value.get(52).getValue()));
             return value.get(52).getValue().length() == 4;
-        } catch (NumberFormatException nfe) {
+        } catch (IllegalArgumentException nfe) {
             return false;
         }
     }
