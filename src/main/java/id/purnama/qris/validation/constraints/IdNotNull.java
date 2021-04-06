@@ -26,9 +26,9 @@ public @interface IdNotNull {
 
     Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default {};
-
     int id() default 0;
+
+    Class<? extends Payload>[] payload() default {};
 
     /**
      * Defines several {@link IdNotNull} annotations on the same element.
