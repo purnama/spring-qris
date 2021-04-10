@@ -9,6 +9,9 @@ import java.util.Currency;
 import java.util.Locale;
 import java.util.Map;
 
+/**
+ * @author Arthur Purnama
+ */
 @Getter
 @Setter
 @AllArgsConstructor

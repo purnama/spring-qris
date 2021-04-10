@@ -7,6 +7,9 @@ import lombok.Setter;
 
 import java.util.Locale;
 
+/**
+ * @author Arthur Purnama
+ */
 @Getter
 @Setter
 @AllArgsConstructor

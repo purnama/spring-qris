@@ -9,6 +9,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ServletModelAttribu
 
 import java.util.Objects;
 
+/**
+ * @author Arthur Purnama
+ */
 @Setter
 public class QrisModelAttributeMethodProcessor extends ServletModelAttributeMethodProcessor {
 

@@ -22,7 +22,7 @@ import java.util.List;
  * responsibility for any product or service using <b>The Code</b> and <b>The Author</b> specifically disclaims any such responsibility
  * to any party;
  *  <li>and (iv) that <b>The Code</b> package domain name <code>org.iso4j</code> refers to a fake domain created for the need of publication
- *  of <b>The Code>/b> on public repository and should not be used as is (the user of <b>The Code</b> should rather copy the content in
+ *  of <b>The Code</b> on public repository and should not be used as is (the user of <b>The Code</b> should rather copy the content in
  *  own project with own package naming policy). In any case, <b>The Author</b> disclaims any responsibility in case this domain name
  *  enters or may enter in collision with any registered domain, past or future.
  * </ul>
@@ -50,7 +50,7 @@ import java.util.List;
  * <code>IMerchantCategoryCodes</code> is an interface wrapping the ISO 18245 Merchant Category Codes (MCC) as a java enumeration with access methods
  * to various information pertaining to MCC, such as Mastercard Transaction Category Code, Visa Merchant Category Group, and utility methods
  * to get the enumeration values as a POJO list or in JSON (using GSON), classified according to scheme (Mastercard/Visa) classification or
- * Thomson Reuters Business Classification standard. Also provides I18N support (fra & eng).
+ * Thomson Reuters Business Classification standard. Also provides I18N support (fra and eng).
  * <p>
  * Input sources (C) 2005 MasterCard International Incorporated - The April 2005 Quick Reference Booklet,
  *               (C) 2015 Visa - Merchant Data Standards Manual - October 2015
@@ -171,6 +171,9 @@ public interface MerchantCategoryCodes {
 
     }
 
+    /**
+     *
+     */
     enum MastercardMerchantCategory implements ITaxonomy {
 
         // As per Mastercard Merchant Categories
@@ -2707,6 +2710,9 @@ public interface MerchantCategoryCodes {
 
     }
 
+    /**
+     *
+     */
     class Messages {
 
         private Messages(){}

@@ -2,6 +2,9 @@ package id.purnama.qris;
 
 import org.springframework.http.MediaType;
 
+/**
+ * @author Arthur Purnama
+ */
 public class QrisMediaType extends MediaType {
 
     public QrisMediaType(String type) {

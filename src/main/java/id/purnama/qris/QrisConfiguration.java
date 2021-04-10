@@ -10,6 +10,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
+/**
+ * @author Arthur Purnama
+ */
 @Configuration
 public class QrisConfiguration implements WebMvcConfigurer {
 

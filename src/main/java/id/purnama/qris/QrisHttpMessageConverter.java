@@ -16,6 +16,10 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 
+/**
+ * @author Arthur Purnama
+ * @param <T> QRIS Pay Load
+ */
 @AllArgsConstructor
 public class QrisHttpMessageConverter<T extends QrisPayload> extends AbstractHttpMessageConverter<T> {
 

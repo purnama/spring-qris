@@ -7,6 +7,9 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 
+/**
+ * @author Arthur Purnama
+ */
 public class QrisMapper {
 
     public Qris map(Map<Integer, QrisDataObject> payload) {

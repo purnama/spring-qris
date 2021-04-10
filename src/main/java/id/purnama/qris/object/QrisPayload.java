@@ -9,6 +9,9 @@ import lombok.Setter;
 import javax.validation.constraints.Size;
 import java.util.Map;
 
+/**
+ * @author Arthur Purnama
+ */
 @CheckSum
 @AllArgsConstructor
 @NoArgsConstructor
@@ -42,6 +45,7 @@ public class QrisPayload {
      * <b>4.7.3.1</b> Setidaknya satu data object Merchant Account Information dari "02" - "51" harus ditampilkan.<br />
      * <b>4.7.6</b> Merchant Category Code (ID "52")<br  />
      * <b>4.7.6.1</b> Merchant Category Code (MCC) harus memuat informasi MCC yang didefinisikan oleh [ISO 18245]. <br />
+     * <b>4.7.7</b> Merchant Account Information Template (ID “51”) ID “51” wajib ditampilkan jika Value dari Point of Initiation Method “11”.<br />
      * <b>4.7.7</b> Transaction Currency (ID "53")<br />
      * <b>4.7.7.1</b> Transaction Currency harus mengacu pada [ISO 4217] dan merupakan 3 digit angka yang merepresentasikan mata uang . Indonesia Rupiah direpresentasikan oleh Value "360". Value tersebut wajib digunakan jika Value ID “58” adalah “ID” (Indonesia) <br />
      * <b>4.7.13</b> Merchant Name (ID "59")<br />
@@ -54,6 +58,7 @@ public class QrisPayload {
     @PointOfInitiationMethodValue
     @PayloadFormatIndicatorValue
     @MerchantAccountInformationExist
+    @MerchantAccountInformation51Exist
     @MerchantCategoryCode
     @TransactionCurrency
     @TransactionAmount(id = 54)

@@ -7,6 +7,9 @@ import lombok.Setter;
 
 import java.util.Map;
 
+/**
+ * @author Arthur Purnama
+ */
 @Getter
 @Setter
 @AllArgsConstructor
