@@ -16,7 +16,7 @@ public class MerchantAccountInformationCriteriaValidator implements ConstraintVa
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
         if(value.getIntId() > 25 && value.getIntId() < 52){
             for (MerchantCriteria enums : MerchantCriteria.values()) {
-                if (enums.name().equals(value.getTemplateMap().get(2).getValue())) {
+                if (enums.name().equals(value.getTemplateMap().get(3).getValue())) {
                     return true;
                 }
             }

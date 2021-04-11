@@ -2,6 +2,8 @@ package id.purnama.qris.validation;
 
 import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.AdditionalDataField;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -10,6 +12,8 @@ import javax.validation.ConstraintValidatorContext;
  * <b>4.8</b> Data objects—Additional Data Field Template (ID "62")
  * <b>4.8.1.1</b> Jika ditampilkan, minimal berisi satu data object.
  */
+@Builder
+@NoArgsConstructor
 public class AdditionalDataFieldValidator implements ConstraintValidator<AdditionalDataField, QrisDataObject> {
 
     @Override

@@ -1,10 +1,7 @@
 package id.purnama.qris.object;
 
 import id.purnama.qris.validation.constraints.*;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;

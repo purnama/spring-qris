@@ -1,7 +1,7 @@
 package id.purnama.qris.validation;
 
 import id.purnama.qris.object.QrisDataObject;
-import id.purnama.qris.validation.constraints.AdditionalDataFieldAsterisk;
+import id.purnama.qris.validation.constraints.ProprietaryDomesticData;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -9,7 +9,7 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * <b>4.8.1.4</b> Jika ID “99” diisi, maka template mengacu pada Tabel 4.8 dengan panjang karakter yang akan tidak lebih dari 91 karakter.
  */
-public class ProprietaryDomesticDataValidator implements ConstraintValidator<AdditionalDataFieldAsterisk, QrisDataObject> {
+public class ProprietaryDomesticDataValidator implements ConstraintValidator<ProprietaryDomesticData, QrisDataObject> {
 
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
