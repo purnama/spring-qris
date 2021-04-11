@@ -21,9 +21,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface AdditionalDataField {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Data objects—Additional Data Field Template (ID \"62\") jika ditampilkan, minimal berisi satu data object.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

@@ -21,9 +21,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface PostalCode {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Wajib ditampilkan jika Value ID “58” adalah “ID” (Indonesia).";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

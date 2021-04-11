@@ -20,9 +20,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface ProprietaryDomesticData {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Jika ID “99” diisi, maka template mengacu pada Tabel 4.8 dengan panjang karakter yang akan tidak lebih dari 91 karakter.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

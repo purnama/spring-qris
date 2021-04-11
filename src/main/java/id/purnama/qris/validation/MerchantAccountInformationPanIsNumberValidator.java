@@ -6,6 +6,9 @@ import id.purnama.qris.validation.constraints.MerchantAccountInformationPanIsNum
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * @author Arthur Purnama
+ */
 public class MerchantAccountInformationPanIsNumberValidator implements ConstraintValidator<MerchantAccountInformationPanIsNumber, QrisDataObject> {
 
     @Override

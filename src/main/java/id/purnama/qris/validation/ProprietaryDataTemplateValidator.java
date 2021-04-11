@@ -10,6 +10,7 @@ import java.util.Map;
 /**
  * <b>Tabel 4.8:</b> Data object turunan (ID “99”) dalam (ID “62”) Proprietary data Template
  * <table>
+ *     <caption><b>Tabel 4.8:</b> Data object turunan (ID “99”) dalam (ID “62”) Proprietary data Template</caption>
  *     <tr>
  *         <th>ID</th><th>Definisi</th><th>Format</th><th>Panjang Karakter</th><th>Ketersediaan</th><th>Keterangan</th>
  *     </tr>

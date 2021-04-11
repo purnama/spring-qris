@@ -21,9 +21,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface CountryCode {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Country Code wajib mengandung Value yang didefinisikan oleh [ISO 3166-1 alpha 2].";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

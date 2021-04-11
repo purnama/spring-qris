@@ -21,9 +21,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface LengthValue {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Panjang karakter wajib sama dengan jumlah karakter dalam Value field.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

@@ -6,6 +6,9 @@ import id.purnama.qris.validation.constraints.MerchantAccountInformationMandator
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * @author Arthur Purnama
+ */
 public class MerchantAccountInformationMandatoryFieldValidator implements ConstraintValidator<MerchantAccountInformationMandatoryField, QrisDataObject> {
 
     private int id;

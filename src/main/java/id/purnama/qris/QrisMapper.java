@@ -12,6 +12,11 @@ import java.util.Map;
  */
 public class QrisMapper {
 
+    /**
+     * map
+     * @param payload payload
+     * @return Qris
+     */
     public Qris map(Map<Integer, QrisDataObject> payload) {
         Qris object = new Qris();
         object.setPayloadFormatIndicator(payload.get(0).getValue());

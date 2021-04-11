@@ -22,9 +22,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface PayloadFormatIndicatorFirstPosition {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Payload Format Indicator (ID \"00\") harus menjadi urutan pertama data object dalam QR Code.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

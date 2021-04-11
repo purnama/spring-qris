@@ -22,20 +22,48 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Repeatable(MerchantAccountInformationCharLength.List.class)
 public @interface MerchantAccountInformationCharLength {
 
+    /**
+     *
+     * @return String
+     */
     String message() default "Merchant Account Information field \"{id}\" have min:{min} and max{max} characters long.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 
+    /**
+     *
+     * @return int
+     */
     int from() default 0;
-
+    /**
+     *
+     * @return int
+     */
     int to() default 0;
-
+    /**
+     *
+     * @return int
+     */
     int id() default 0;
-
+    /**
+     *
+     * @return int
+     */
     int min() default 0;
-
+    /**
+     *
+     * @return int
+     */
     int max() default Integer.MAX_VALUE;
 
     /**
@@ -47,7 +75,10 @@ public @interface MerchantAccountInformationCharLength {
     @Retention(RUNTIME)
     @Documented
     @interface List {
-
+        /**
+         *
+         * @return MerchantAccountInformationCharLength
+         */
         MerchantAccountInformationCharLength[] value();
     }
 }

@@ -21,9 +21,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface MerchantCategoryCode {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Merchant Category Code (MCC) harus memuat informasi MCC yang didefinisikan oleh [ISO 18245].";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

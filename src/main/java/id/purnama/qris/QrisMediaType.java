@@ -7,6 +7,10 @@ import org.springframework.http.MediaType;
  */
 public class QrisMediaType extends MediaType {
 
+    /**
+     * constructor
+     * @param type type
+     */
     public QrisMediaType(String type) {
         super(type);
     }

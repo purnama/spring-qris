@@ -30,12 +30,28 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Repeatable(TransactionAmount.List.class)
 public @interface TransactionAmount {
 
+    /**
+     *
+     * @return String
+     */
     String message() default "Transaction Amount Valuenya tidak boleh “0”, nilai yang digunakan harus digit “0” hingga ”9” dan tidak bernilai negatif.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 
+    /**
+     *
+     * @return int
+     */
     int id() default 0;
 
     /**
@@ -48,6 +64,10 @@ public @interface TransactionAmount {
     @Documented
     @interface List {
 
+        /**
+         *
+         * @return TransactionAmount
+         */
         TransactionAmount[] value();
     }
 }

@@ -17,6 +17,9 @@ public class QrisModelAttributeMethodProcessor extends ServletModelAttributeMeth
 
     private QrisParser qrisParser;
 
+    /**
+     * constructor
+     */
     public QrisModelAttributeMethodProcessor() {
         super(true);
     }

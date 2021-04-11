@@ -20,9 +20,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface MerchantAccountInformationReverseDomain {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Merchant Account Information Personal Account Number field mandatory.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

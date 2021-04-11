@@ -13,7 +13,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * <b>4.9.3</b> Merchant Name—Alternate Language (ID "01")
- * <b></b>4.9.3.1</b> Merchant Name—Alternate Language wajib ditampilkan. Merchant Name—Alternate Language direkomendasikan merupakan indikasi dari nama toko atau merchant dalam bahasa alternatif
+ * <b>4.9.3.1</b> Merchant Name—Alternate Language wajib ditampilkan. Merchant Name—Alternate Language direkomendasikan merupakan indikasi dari nama toko atau merchant dalam bahasa alternatif
  */
 @Documented
 @Constraint(validatedBy = {MerchantNameAlternateLanguageValidator.class})
@@ -21,9 +21,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface MerchantNameAlternateLanguage {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Merchant Name—Alternate Language wajib ditampilkan.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

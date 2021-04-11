@@ -20,9 +20,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface MerchantAccountInformation51Exist {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "ID “51” wajib ditampilkan jika Value dari Point of Initiation Method “11”.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

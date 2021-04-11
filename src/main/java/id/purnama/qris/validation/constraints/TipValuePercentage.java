@@ -20,9 +20,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface TipValuePercentage {
 
+    /**
+     *
+     * @return String
+     */
     String message() default "Value yang digunakan berkisar antara “00.01” dan “99.99”";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

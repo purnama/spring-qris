@@ -20,9 +20,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface MerchantAccountInformationExist {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Setidaknya satu data object Merchant Account Information dari \"02\" - \"51\" harus ditampilkan.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

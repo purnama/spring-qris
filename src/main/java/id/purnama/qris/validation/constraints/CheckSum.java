@@ -22,9 +22,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface CheckSum {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Checksum wajib dihitung sesuai dengan [ISO/IEC 13239]";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

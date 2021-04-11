@@ -22,9 +22,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface CRCLastPosition {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "CRC (ID \"63\") harus menjadi urutan terakhir data object dalam QR Code.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

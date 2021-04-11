@@ -12,6 +12,11 @@ import java.util.Map;
  */
 public class QrisParser {
 
+    /**
+     *
+     * @param qris qris
+     * @return payload
+     */
     public QrisPayload parse(String qris) {
         QrisPayload qrisPayload = new QrisPayload();
         qrisPayload.setPayload(qris);
@@ -19,6 +24,10 @@ public class QrisParser {
         return qrisPayload;
     }
 
+    /**
+     *
+     * @param payload payload
+     */
     public void parse(QrisPayload payload) {
         Map<Integer, QrisDataObject> qrisMap = new LinkedHashMap<>();
         parseRoot(payload.getPayload(), qrisMap);

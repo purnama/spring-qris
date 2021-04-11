@@ -7,6 +7,9 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Map;
 
+/**
+ * @author Arthur Purnama
+ */
 public class IdNotNullValidator implements ConstraintValidator<IdNotNull, Map<Integer, QrisDataObject>> {
 
     private int id;

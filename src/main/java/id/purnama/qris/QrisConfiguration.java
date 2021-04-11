@@ -22,21 +22,37 @@ public class QrisConfiguration implements WebMvcConfigurer {
     @Autowired
     private QrisModelAttributeMethodProcessor qrisModelAttributeMethodProcessor;
 
+    /**
+     *
+     * @return payload
+     */
     @Bean
     public QrisHttpMessageConverter<QrisPayload> qrisHttpMessageConverter(){
         return new QrisHttpMessageConverter<>();
     }
 
+    /**
+     *
+     * @return processor
+     */
     @Bean
     public QrisModelAttributeMethodProcessor qrisModelAttributeMethodProcessor(){
         return new QrisModelAttributeMethodProcessor();
     }
 
+    /**
+     *
+     * @return mapper
+     */
     @Bean
     public QrisMapper qrisMapper(){
         return new QrisMapper();
     }
 
+    /**
+     *
+     * @return parser
+     */
     @Bean
     public QrisParser qrisParser(){
         return new QrisParser();

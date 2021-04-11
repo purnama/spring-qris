@@ -13,7 +13,7 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- *
+ * @author Arthur Purnama
  */
 @Documented
 @Constraint(validatedBy = {IdNotNullValidator.class})
@@ -22,12 +22,28 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Repeatable(IdNotNull.List.class)
 public @interface IdNotNull {
 
+    /**
+     *
+     * @return String
+     */
     String message() default "ID: {id} tidak boleh kosong.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return int
+     */
     int id() default 0;
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 
     /**
@@ -40,6 +56,10 @@ public @interface IdNotNull {
     @Documented
     @interface List {
 
+        /**
+         *
+         * @return IdNotNull
+         */
         IdNotNull[] value();
     }
 }

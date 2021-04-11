@@ -25,6 +25,9 @@ public class QrisHttpMessageConverter<T extends QrisPayload> extends AbstractHtt
 
     private QrisParser qrisParser;
 
+    /**
+     * constructor
+     */
     protected QrisHttpMessageConverter() {
         super(QrisMediaType.APPLICATION_QRIS);
     }

@@ -24,17 +24,15 @@ import java.util.Map;
  * <b>4.7.5.2</b> Jika ditampilkan, maka template Merchant Account Information berisi data object sesuai Tabel 4.3 dibawah ini.<br/>
  * Tabel 4.3: Data object turunan Merchant Account Information Template (ID "26" - "45")
  * <table>
- *   <thead>
+ *     <caption>Tabel 4.3: Data object turunan Merchant Account Information Template (ID 26 - 45)</caption>
  *     <tr><th>ID</th><th>Definisi</th><th>Format</th><th>Panjang Karakter</th><th>Ketersediaan</th><th>Keterangan</th></tr>
- *   </thead>
- *   <tbody>
  *      <tr>
  *          <td>“00”</td><td>Globally Unique Identifier</td><td>ans</td><td>var. up to "32"</td><td>M/td>
  *          <td><ul><li>reverse domain name</li><li>acquiring domain</li><li>Contoh: com.acquiring.www</li></ul></td>
  *      </tr>
  *      <tr>
  *          <td>“01”</td><td>PAN</td><td>N</td><td>var. up to "19"</td><td>M</td>
- *          <td><ul><li>Personal Account Number (PAN) merchant</li><li>menggunakan National Numbering System (NNS) pada 8 digit pertama.</li></td>
+ *          <td><ul><li>Personal Account Number (PAN) merchant</li><li>menggunakan National Numbering System (NNS) pada 8 digit pertama.</li></ul></td>
  *      </tr>
  *      <tr>
  *          <td>“02”</td><td>ID</td><td>ans/td><td>var. up to "15"</td><td>M</td>
@@ -44,7 +42,6 @@ import java.util.Map;
  *          <td>“03”</td><td>Criteria</td><td>ans/td><td>3</td><td>M</td>
  *          <td><ul><li>Kriteria mengacu pada Tabel 4.6</li><li>*exclude “|” pipe karakter</li></ul></td>
  *      </tr>
- *   </tbody>
  * </table>
  * <b>4.7.5.3</b> Reverse Domain pada ID “26”-“45” dengan sub ID “00” harus memiliki nilai default “00” atau dapat berisi informasi reverse domain-nya.
  */
@@ -107,10 +104,18 @@ public class QrisDataObject {
      */
     private Map<Integer, QrisDataObject> templateMap;
 
+    /**
+     *
+     * @return Integer
+     */
     public Integer getIntId(){
         return Integer.valueOf(this.id);
     }
 
+    /**
+     *
+     * @return Integer
+     */
     public Integer getIntLength(){
         return Integer.valueOf(this.length);
     }

@@ -21,9 +21,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface LanguagePreferance {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Language Preference wajib berisi dua karakter alfabet yang didefinisikan oleh [ISO 639].";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

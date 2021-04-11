@@ -20,9 +20,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface AdditionalConsumerDataRequest {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Jika ditampilkan Additional Consumer Data Request (ID \"09\") wajib berisi kombinasi karakter seperti \"A\", \"M\" dan/atau \"E\"";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

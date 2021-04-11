@@ -27,9 +27,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface TipValueIndicator {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Tip Indicator wajib mengandung Value dari \"01\", \"02\" atau \"03\".";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }

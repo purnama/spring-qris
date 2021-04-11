@@ -11,16 +11,31 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * @author Arthur Purnama
+ */
 @Documented
 @Constraint(validatedBy = {MerchantAccountInformationPanIsNumberValidator.class})
 @Target({TYPE})
 @Retention(RUNTIME)
 public @interface MerchantAccountInformationPanIsNumber {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Merchant Account Information field {id} must min:{min} and max:{max} characters long";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 
     /**

@@ -7,6 +7,9 @@ import id.purnama.qris.validation.constraints.MerchantAccountInformationCriteria
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * <b>4.7.5.3</b> Reverse Domain pada ID “26”-“45” dengan sub ID “00” harus memiliki nilai default “00” atau dapat berisi informasi reverse domain-nya.
+ */
 public class MerchantAccountInformationCriteriaValidator implements ConstraintValidator<MerchantAccountInformationCriteria, QrisDataObject> {
 
     @Override

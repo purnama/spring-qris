@@ -20,9 +20,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface AdditionalDataFieldAsterisk {
 
+        /**
+     *
+     * @return String
+     */
     String message() default "Jika ditampilkan, konten dari data object ID \"01\" - \"08\" wajib berupa \"***\" (tiga karakter asterisk) atau Value yang telah didefinisi oleh merchant.";
 
+    /**
+     *
+     * @return class
+     */
     Class<?>[] groups() default {};
 
+    /**
+     *
+     * @return class
+     */
     Class<? extends Payload>[] payload() default {};
 }
