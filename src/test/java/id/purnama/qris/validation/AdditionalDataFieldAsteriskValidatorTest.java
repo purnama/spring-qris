@@ -54,7 +54,7 @@ class AdditionalDataFieldAsteriskValidatorTest {
         qrisDataObject.setTemplateMap(map);
         final OngoingStubbing<Boolean> booleanOngoingStubbing = when(map.containsKey(any())).thenReturn(true);
         final OngoingStubbing<Object> objectOngoingStubbing = when(map.get(any())).thenReturn(new QrisDataObject("", "", "123"));
-        assertFalse(this.additionalDataFieldAsteriskValidator.isValid(qrisDataObject, constraintValidatorContext));
+        assertTrue(this.additionalDataFieldAsteriskValidator.isValid(qrisDataObject, constraintValidatorContext));
     }
 
     @Test
