@@ -33,13 +33,6 @@ public class AdditionalDataFieldAsteriskValidator implements ConstraintValidator
 
     private boolean checkTemplate(QrisDataObject value, int i) {
         String str = value.getTemplateMap().get(i).getValue();
-        if(!"".equals(str)){
-            if(str.length() == 3){
-                return !"***".equals(str);
-            }
-        }else {
-            return true;
-        }
-        return false;
+        return "".equals(str);
     }
 }

@@ -3,6 +3,7 @@ package id.purnama.qris.object;
 import id.purnama.qris.validation.constraints.*;
 import lombok.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -68,6 +69,7 @@ import java.util.Map;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@Valid
 public class QrisDataObject {
 
 
@@ -99,6 +101,7 @@ public class QrisDataObject {
     /**
      * <b>4.3.1.2</b> Hanya boleh terdapat satu data object dengan ID spesifik di bawah root QR Code dan hanya boleh terdapat satu ID spesifik dalam template-nya.
      */
+    @Valid
     private Map<Integer, QrisDataObject> templateMap;
 
     /**

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Size;
 import java.util.Map;
 
@@ -70,5 +71,6 @@ public class QrisPayload {
     @IdNotNull(id = 59)
     @IdNotNull(id = 60)
     @PostalCode
+    @Valid
     private Map<Integer, QrisDataObject> qrisRoot;
 }

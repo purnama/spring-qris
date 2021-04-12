@@ -4,13 +4,15 @@ import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.object.QrisPayload;
 import org.junit.jupiter.api.Test;
 
+import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SpringQrisApplicationTests {
 
@@ -58,16 +60,8 @@ class SpringQrisApplicationTests {
         stringList.add("0002010102122654000200011893600014300061643802150008850006164380303UKE5204541153033605405495005802ID5913OMBE KOFIE-HO6013JAKARTA UTARA6105142406259010611093205121100131109320708AG20521199170002000107DINAMIS63049414");
         for (String qris : stringList) {
             QrisPayload parse = qrisParser.parse(qris);
-            validator.validate(parse);
-            for (Map.Entry<Integer, QrisDataObject> entry : parse.getQrisRoot().entrySet()) {
-                validator.validate(entry.getValue());
-                if(entry.getValue().getTemplateMap() != null){
-                    for (Map.Entry<Integer, QrisDataObject> entry2 : entry.getValue().getTemplateMap().entrySet()) {
-                        validator.validate(entry2.getValue());
-                    }
-                }
-            }
+            Set<ConstraintViolation<QrisPayload>> constraintViolationSet = validator.validate(parse);
+            assertEquals(0, constraintViolationSet.size());
         }
-        assertTrue(true);
     }
 }

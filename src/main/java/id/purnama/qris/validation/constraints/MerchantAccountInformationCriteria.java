@@ -24,7 +24,7 @@ public @interface MerchantAccountInformationCriteria {
      *
      * @return String
      */
-    String message() default "Merchant Account Information Personal Account Number field mandatory.";
+    String message() default "Merchant Account Information Criteria field mandatory.";
 
     /**
      *
