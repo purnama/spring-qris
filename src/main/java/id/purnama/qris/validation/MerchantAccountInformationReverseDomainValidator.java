@@ -32,7 +32,8 @@ public class MerchantAccountInformationReverseDomainValidator implements Constra
 
     private boolean isValidDomain(String str) {
         // Regex to check valid domain name.
-        String regex = "^((?!-)[A-Za-z0–9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$";
+        String regex;
+        regex = "(?=^.{4,253}\\.?$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\\.)+[a-zA-Z]{2,63}\\.?$)";
 
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(str);
