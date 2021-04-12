@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 public class TransactionAmountValidator implements ConstraintValidator<TransactionAmount, Map<Integer, QrisDataObject>> {
 
     private int id;
+
     @Override
     public void initialize(TransactionAmount constraintAnnotation) {
         this.id = constraintAnnotation.id();
@@ -30,19 +31,15 @@ public class TransactionAmountValidator implements ConstraintValidator<Transacti
 
     @Override
     public boolean isValid(Map<Integer, QrisDataObject> value, ConstraintValidatorContext context) {
-        if(value.get(this.id) != null && isValidAmount(value.get(this.id).getValue())) {
-            try {
-                double amount = Double.parseDouble(value.get(this.id).getValue());
-                return amount > 0;
-            } catch (NumberFormatException ex) {
-                return false;
-            }
+        if (value.get(this.id) != null && isValidAmount(value.get(this.id).getValue())) {
+            double amount = Double.parseDouble(value.get(this.id).getValue());
+            return amount > 0;
         }
         return true;
     }
 
     private boolean isValidAmount(String str) {
-        // Regex to check valid domain name.
+        // Regex to check valid amount.
         String regex = "^(([1-9]\\d{0,2}(\\d{3})*)|(([1-9]\\d*)?\\d))(\\.\\d{0,2})?$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(str);

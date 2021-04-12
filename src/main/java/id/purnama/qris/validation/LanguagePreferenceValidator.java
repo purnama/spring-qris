@@ -15,14 +15,14 @@ import java.util.Locale;
  */
 @Builder
 @NoArgsConstructor
-public class LanguagePreferanceValidator implements ConstraintValidator<LanguagePreferance, QrisDataObject> {
+public class LanguagePreferenceValidator implements ConstraintValidator<LanguagePreferance, QrisDataObject> {
 
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
         if(value.getIntId().equals(64)){
             String localeStr = value.getTemplateMap().get(0).getValue();
             for(Locale locale : Locale.getAvailableLocales()){
-                if(localeStr.equals(locale.getLanguage())){
+                if(localeStr.length() == 2 && localeStr.toLowerCase(Locale.ROOT).equals(locale.getCountry().toLowerCase(Locale.ROOT))){
                     return true;
                 }
             }

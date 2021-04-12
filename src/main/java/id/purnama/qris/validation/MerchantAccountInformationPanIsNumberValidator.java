@@ -13,7 +13,7 @@ public class MerchantAccountInformationPanIsNumberValidator implements Constrain
 
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
-        if(value.getIntId() > 25 && value.getIntId() < 46){
+        if(value.getIntId() >= 26 && value.getIntId() <= 45){
             try {
                 Double.parseDouble(value.getTemplateMap().get(1).getValue());
             } catch (NumberFormatException nfe) {

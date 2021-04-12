@@ -3,8 +3,6 @@ package id.purnama.qris.validation;
 import id.purnama.qris.object.QrisDataObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
-import org.mockito.stubbing.OngoingStubbing;
 
 import javax.validation.ConstraintValidatorContext;
 
@@ -16,20 +14,20 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class LanguagePreferanceValidatorTest {
+class LanguagePreferenceValidatorTest {
     private ConstraintValidatorContext constraintValidatorContext = mock(ConstraintValidatorContext.class);
 
-    private LanguagePreferanceValidator languagePreferanceValidator;
+    private LanguagePreferenceValidator languagePreferenceValidator;
 
     @BeforeEach
     private void before(){
-        this.languagePreferanceValidator = LanguagePreferanceValidator.builder().build();
+        this.languagePreferenceValidator = LanguagePreferenceValidator.builder().build();
     }
 
     @Test
     void isValidTestNoTag(){
         QrisDataObject qrisDataObject = new QrisDataObject("10", "10", "10");
-        assertTrue(this.languagePreferanceValidator.isValid(qrisDataObject, constraintValidatorContext));
+        assertTrue(this.languagePreferenceValidator.isValid(qrisDataObject, constraintValidatorContext));
     }
 
     @Test
@@ -39,6 +37,16 @@ class LanguagePreferanceValidatorTest {
         var map = mock(Map.class);
         qrisDataObject.setTemplateMap(map);
         when(map.get(any())).thenReturn(new QrisDataObject("00", "", "123"));
-        assertFalse(this.languagePreferanceValidator.isValid(qrisDataObject, constraintValidatorContext));
+        assertFalse(this.languagePreferenceValidator.isValid(qrisDataObject, constraintValidatorContext));
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void isValidTestValueFound(){
+        QrisDataObject qrisDataObject = new QrisDataObject("64", "10", "10");
+        var map = mock(Map.class);
+        qrisDataObject.setTemplateMap(map);
+        when(map.get(any())).thenReturn(new QrisDataObject("00", "", "ID"));
+        assertTrue(this.languagePreferenceValidator.isValid(qrisDataObject, constraintValidatorContext));
     }
 }

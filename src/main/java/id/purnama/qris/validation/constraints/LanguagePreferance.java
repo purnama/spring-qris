@@ -1,6 +1,6 @@
 package id.purnama.qris.validation.constraints;
 
-import id.purnama.qris.validation.LanguagePreferanceValidator;
+import id.purnama.qris.validation.LanguagePreferenceValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -16,7 +16,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * <b>4.9.2.1</b> Language Preference wajib berisi dua karakter alfabet yang didefinisikan oleh [ISO 639]. Value pada data object Language Preference (ID "00") harus sesuai dengan Merchant Name—Alternate Language dan Merchant City—Alternate Language.
  */
 @Documented
-@Constraint(validatedBy = {LanguagePreferanceValidator.class})
+@Constraint(validatedBy = {LanguagePreferenceValidator.class})
 @Target({TYPE})
 @Retention(RUNTIME)
 public @interface LanguagePreferance {
