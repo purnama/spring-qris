@@ -2,6 +2,7 @@ package id.purnama.qris;
 
 import id.purnama.qris.object.QrisPayload;
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.converter.AbstractHttpMessageConverter;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
  * @author Arthur Purnama
  * @param <T> QRIS Pay Load
  */
+@Setter
 @AllArgsConstructor
 public class QrisHttpMessageConverter<T extends QrisPayload> extends AbstractHttpMessageConverter<T> {
 

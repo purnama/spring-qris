@@ -22,6 +22,9 @@ public class QrisConfiguration implements WebMvcConfigurer {
     @Autowired
     private QrisModelAttributeMethodProcessor qrisModelAttributeMethodProcessor;
 
+    @Autowired
+    private QrisParser qrisParser;
+
     /**
      *
      * @return payload
@@ -60,11 +63,13 @@ public class QrisConfiguration implements WebMvcConfigurer {
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        qrisHttpMessageConverter.setQrisParser(qrisParser);
         converters.add(qrisHttpMessageConverter);
     }
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        qrisModelAttributeMethodProcessor.setQrisParser(qrisParser);
         argumentResolvers.add(qrisModelAttributeMethodProcessor);
     }
 }

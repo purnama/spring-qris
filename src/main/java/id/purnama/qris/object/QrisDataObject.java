@@ -59,6 +59,9 @@ import java.util.Map;
 @MerchantAccountInformationPanIsNumber
 @MerchantAccountInformationReverseDomain
 @MerchantAccountInformationCriteria
+@CharLength(id=56, min=1, max=13)
+@CharLength(id=59, min=1, max=25)
+@CharLength(id=60, min=1, max=15)
 @AdditionalDataField
 @AdditionalDataFieldAsterisk
 @AdditionalConsumerDataRequest

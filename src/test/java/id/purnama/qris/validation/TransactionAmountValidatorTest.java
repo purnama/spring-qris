@@ -3,7 +3,6 @@ package id.purnama.qris.validation;
 import id.purnama.qris.object.QrisDataObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import javax.validation.ConstraintValidatorContext;
 import java.util.Map;

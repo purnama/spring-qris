@@ -25,7 +25,7 @@ public @interface PostalCode {
      *
      * @return String
      */
-    String message() default "Wajib ditampilkan jika Value ID “58” adalah “ID” (Indonesia).";
+    String message() default "Kode Pos wajib ditampilkan jika Value ID “58” adalah “ID” (Indonesia).";
 
     /**
      *

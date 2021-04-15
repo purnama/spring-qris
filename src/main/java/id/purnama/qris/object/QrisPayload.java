@@ -60,6 +60,9 @@ public class QrisPayload {
     @PayloadFormatIndicatorValue
     @MerchantAccountInformationExist
     @MerchantAccountInformation51Exist
+    @MandatoryField(id = 58)
+    @MandatoryField(id = 59)
+    @MandatoryField(id = 60)
     @MerchantCategoryCode
     @TransactionCurrency
     @TransactionAmount(id = 54)
