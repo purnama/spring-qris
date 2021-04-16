@@ -44,7 +44,7 @@ jobs:
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
       - name: Publish package
-        run: mvn --batch-mode deploy -Dgpg.keyname=${{secrets.GPG_KEYNAME}} -Dgpg.passphrase=${{secrets.GPG_PASSPHRASE}}
+        run: mvn --batch-mode --settings settings.xml deploy -Dgpg.keyname=${{secrets.GPG_KEYNAME}} -Dgpg.passphrase=${{secrets.GPG_PASSPHRASE}}
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
