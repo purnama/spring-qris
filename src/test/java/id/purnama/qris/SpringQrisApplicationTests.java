@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SpringQrisApplicationTests {
 
@@ -40,15 +41,8 @@ class SpringQrisApplicationTests {
                         "62" + "07" + "0703A01" +
                         "63" + "04" + "455C";
         QrisPayload parse = qrisParser.parse(qris);
-        validator.validate(parse);
-        for (Map.Entry<Integer, QrisDataObject> entry : parse.getQrisRoot().entrySet()) {
-            validator.validate(entry.getValue());
-            if(entry.getValue().getTemplateMap() != null){
-                for (Map.Entry<Integer, QrisDataObject> entry2 : entry.getValue().getTemplateMap().entrySet()) {
-                    validator.validate(entry2.getValue());
-                }
-            }
-        }
+        Set<ConstraintViolation<QrisPayload>> constraintViolationSet = validator.validate(parse);
+        assertEquals(0, constraintViolationSet.size());
 
     }
 
@@ -60,10 +54,22 @@ class SpringQrisApplicationTests {
         stringList.add("0002010102122654000200011893600014300061643802150008850006164380303UKE5204541153033605405495005802ID5913OMBE KOFIE-HO6013JAKARTA UTARA6105142406259010611093205121100131109320708AG20521199170002000107DINAMIS63049414");
         stringList.add("00020101021226660014ID.LINKAJA.WWW011893600911002711446402151902170711446450303UBE51450015ID.OR.GPNQR.WWW02150000000000000000303UBE520454995802ID5920SPBU SNTRA BISNIS AR6001-6101-621801143414210-7584075303360550201540630000063040FA0");
         stringList.add("00020101021226620016COM.ASTRAPAY.WWW011893600822321000001802092100000180303UBE520450455303360540445805802ID5914Yokke Merchant6015Jakarta Selatan610512440626001152104140025420150715ASTRAPAY0000100981802092100000180301163040E7E");
+        stringList.add("00020101021126610014COM.GO-JEK.WWW01189360091435804770920210G5804770920303URE51440014ID.CO.QRIS.WWW0215ID20200182437880303URE5204839853033605802ID5925Lazis Amalia Astra PT Int6013JAKARTA UTARA61051433062070703A946304E083");
         for (String qris : stringList) {
             QrisPayload parse = qrisParser.parse(qris);
             Set<ConstraintViolation<QrisPayload>> constraintViolationSet = validator.validate(parse);
             assertEquals(0, constraintViolationSet.size());
+        }
+    }
+
+    @Test
+    void qrisTestWithErrors() {
+        List<String> stringList = new LinkedList<>();
+        stringList.add("00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000022702092100002270303UBE520311153033605802ID5926INFAQ/SEDEKAH AMANAH ASTRA6007Sumbawa61058431362290708ASTRAPAY981302092100002276304C9C2");
+        for (String qris : stringList) {
+            QrisPayload parse = qrisParser.parse(qris);
+            Set<ConstraintViolation<QrisPayload>> constraintViolationSet = validator.validate(parse);
+            assertEquals(3, constraintViolationSet.size());
         }
     }
 }

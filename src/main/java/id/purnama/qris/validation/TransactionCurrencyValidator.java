@@ -20,8 +20,11 @@ public class TransactionCurrencyValidator implements ConstraintValidator<Transac
 
         Set<Currency> availableCurrencies = Currency.getAvailableCurrencies();
         for (Currency currency : availableCurrencies) {
-            if (currency.getNumericCodeAsString().equals(value.get(53).getValue()) && "ID".equals(value.get(58).getValue())) {
-                return "360".equals(value.get(53).getValue());
+            if(currency.getNumericCodeAsString().equals(value.get(53).getValue())) {
+                if ("ID".equals(value.get(58).getValue())) {
+                    return "360".equals(value.get(53).getValue());
+                }
+                return true;
             }
         }
         return false;

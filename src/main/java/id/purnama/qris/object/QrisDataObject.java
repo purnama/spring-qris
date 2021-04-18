@@ -57,14 +57,15 @@ import java.util.Map;
 @MerchantAccountInformationCharLength(from = 51, to = 51, max = 32)
 @MerchantAccountInformationCharLength(from = 51, to = 51, id=2, max = 15)
 @MerchantAccountInformationPanIsNumber
+@NationalNumberingSystem
 @MerchantAccountInformationReverseDomain
 @MerchantAccountInformationCriteria
-@CharLength(id=56, min=1, max=13)
-@CharLength(id=59, min=1, max=25)
-@CharLength(id=60, min=1, max=15)
 @AdditionalDataField
 @AdditionalDataFieldAsterisk
 @AdditionalConsumerDataRequest
+@AdditionalDataFieldCharLength(from = 1, to = 8, min = 1, max = 25)
+@AdditionalDataFieldCharLength(from = 9, to = 9, min = 3, max = 3)
+@AdditionalDataFieldCharLength(from = 99, to = 99, min = 1, max = 95)
 @ProprietaryDomesticData
 @ProprietaryDataTemplate
 @LanguagePreferance

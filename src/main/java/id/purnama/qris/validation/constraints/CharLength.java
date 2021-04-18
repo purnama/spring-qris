@@ -9,12 +9,12 @@ import java.lang.annotation.Repeatable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Documented
 @Constraint(validatedBy = {CharLengthValidator.class})
-@Target({TYPE})
+@Target({FIELD})
 @Retention(RUNTIME)
 @Repeatable(CharLength.List.class)
 public @interface CharLength {
@@ -23,7 +23,7 @@ public @interface CharLength {
      *
      * @return String
      */
-    String message() default "Field \"{id}\" have min:{min} and max{max} characters long.";
+    String message() default "Field from \"{from}\" to \"{to}\" have min:{min} and max:{max} characters long.";
 
     /**
      *
@@ -41,7 +41,14 @@ public @interface CharLength {
      *
      * @return int
      */
-    int id() default 0;
+    int from() default 0;
+
+    /**
+     *
+     * @return int
+     */
+    int to() default 0;
+
     /**
      *
      * @return int
@@ -58,7 +65,7 @@ public @interface CharLength {
      *
      * @see CharLength
      */
-    @Target({ TYPE })
+    @Target({ FIELD })
     @Retention(RUNTIME)
     @Documented
     @interface List {
