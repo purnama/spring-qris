@@ -20,7 +20,7 @@ import javax.validation.ConstraintValidatorContext;
  *     <tr><td>Purpose of Transaction</td><td>"08"</td><td>ans</td><td>var. up to "25"</td><td>O</td></tr>
  *     <tr><td>Additional Consumer Data Request</td><td>"09"</td><td>ans</td><td>var. up to "03"</td><td>O</td></tr>
  *     <tr><td>RFU for EMVCo</td><td>"10"-"49"</td><td>S</td><td>-</td><td>O</td></tr>
- *     <tr><</td><td>>Payment System specific templates.</td><td>"50"-"98"</td><td>S</td><td>-</td><td>O</td></tr>
+ *     <tr><td>Payment System specific templates.</td><td>"50"-"98"</td><td>S</td><td>-</td><td>O</td></tr>
  *     <tr><td>Proprietary data</td><td>"99"</td><td>ans</td><td>var. up to "95"</td><td>O</td></tr>
  * </table>
  */
