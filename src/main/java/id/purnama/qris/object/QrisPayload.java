@@ -95,7 +95,7 @@ public class QrisPayload {
     @CharLength(from=56, to=56, min=1, max=13)
     @CharLength(from=57, to=57, min=1, max=5)
     @CharLength(from=58, to=58, min=2, max=2)
-    @CharLength(from=59, to=56, min=1, max=25)
+    @CharLength(from=59, to=59, min=1, max=25)
     @CharLength(from=60, to=60, min=1, max=15)
     @CharLength(from=61, to=61, min=1, max=10)
     @CharLength(from=62, to=62, min=1, max=99)

@@ -18,7 +18,7 @@ public class MerchantAccountInformationReverseDomainValidator implements Constra
 
     @Override
     public boolean isValid(QrisDataObject value, ConstraintValidatorContext context) {
-        if (value.getIntId() > 25 && value.getIntId() < 52 && !"00".equals(value.getTemplateMap().get(0).getValue())) {
+        if (value.getIntId() >= 26 && value.getIntId() <= 45 && !"00".equals(value.getTemplateMap().get(0).getValue())) {
             return isValidDomain(reverseDomainNameString(value.getTemplateMap().get(0).getValue()));
         }
         return true;
