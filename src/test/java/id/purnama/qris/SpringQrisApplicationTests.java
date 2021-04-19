@@ -1,6 +1,5 @@
 package id.purnama.qris;
 
-import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.object.QrisPayload;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +8,6 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -40,9 +38,7 @@ class SpringQrisApplicationTests {
                         "61" + "05" + "10640" +
                         "62" + "07" + "0703A01" +
                         "63" + "04" + "455C";
-        QrisPayload parse = qrisParser.parse(qris);
-        Set<ConstraintViolation<QrisPayload>> constraintViolationSet = validator.validate(parse);
-        assertEquals(0, constraintViolationSet.size());
+        testsWithErrors(0, qris);
 
     }
 
@@ -57,25 +53,38 @@ class SpringQrisApplicationTests {
         stringList.add("00020101021226620016COM.ASTRAPAY.WWW011893600822321000001802092100000180303UBE520450455303360540445805802ID5914Yokke Merchant6015Jakarta Selatan610512440626001152104140025420150715ASTRAPAY0000100981802092100000180301163040E7E");
         stringList.add("00020101021126610014COM.GO-JEK.WWW01189360091435804770920210G5804770920303URE51440014ID.CO.QRIS.WWW0215ID20200182437880303URE5204839853033605802ID5925Lazis Amalia Astra PT Int6013JAKARTA UTARA61051433062070703A946304E083");
         for (String qris : stringList) {
-            QrisPayload parse = qrisParser.parse(qris);
-            Set<ConstraintViolation<QrisPayload>> constraintViolationSet = validator.validate(parse);
-            assertEquals(0, constraintViolationSet.size());
+            testsWithErrors(0, qris);
         }
     }
 
-    /*@Test
+    @Test
     void qrisTestWithErrors() {
-        List<String> stringList = new LinkedList<>();
-        stringList.add("00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000031302092100003130303UBE5204111153033605802ID5926AHASS Hayati Sungai Rumbai6007Sumbawa61058431362240703A019813020921000031363046015");
-        stringList.add("00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000031302092100003130303UBE5204551153033605802ID5926AHASS Hayati Sungai Rumbai6011DHARMASRAYA61052768462240703A0198130209210000313630437A8");
-        stringList.add("00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000030702092100003070303UBE5204111153033605802ID5924AHASS Hayati Lubuk Buaya6007Sumbawa61058431362240703A019813020921000030763043CAA");
-        stringList.add("00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000022702092100002270303UBE520311153033605802ID5926INFAQ/SEDEKAH AMANAH ASTRA6007Sumbawa61058431362290708ASTRAPAY981302092100002276304C9C2");
-        stringList.add("00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000030502092100003050303UBE5204111153033605802ID5922AHASS Hayati Pemuda 356007Sumbawa61058431362240703A01981302092100003056304ABEF");
-        for (String qris : stringList) {
-            QrisPayload parse = qrisParser.parse(qris);
-            Set<ConstraintViolation<QrisPayload>> constraintViolationSet = validator.validate(parse);
-            assertEquals(3, constraintViolationSet.size());
-        }
-    }*/
+        testsWithErrors(2, "00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000030502092100003050303UBE5204111153033605802ID5922AHASS Hayati Pemuda 356007Sumbawa61058431362240703A01981302092100003056304ABEF");
+    }
 
+    private void testsWithErrors(int expected, String qris) {
+        QrisPayload parse = qrisParser.parse(qris);
+        Set<ConstraintViolation<QrisPayload>> constraintViolationSet = validator.validate(parse);
+        assertEquals(expected, constraintViolationSet.size());
+    }
+
+    @Test
+    void qrisTestWithErrors1() {
+        testsWithErrors(2, "00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000031302092100003130303UBE5204551153033605802ID5926AHASS Hayati Sungai Rumbai6011DHARMASRAYA61052768462240703A0198130209210000313630437A8");
+    }
+
+    @Test
+    void qrisTestWithErrors2() {
+        testsWithErrors(2, "00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000030702092100003070303UBE5204111153033605802ID5924AHASS Hayati Lubuk Buaya6007Sumbawa61058431362240703A019813020921000030763043CAA");
+    }
+
+    @Test
+    void qrisTestWithErrors3() {
+        testsWithErrors(3, "00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000031302092100003130303UBE5204111153033605802ID5926AHASS Hayati Sungai Rumbai6007Sumbawa61058431362240703A019813020921000031363046015");
+    }
+
+    @Test
+    void qrisTestWithErrors4() {
+        testsWithErrors(4, "00020101021126640018ID.CO.ASTRAPAY.WWW011893600822321000022702092100002270303UBE520311153033605802ID5926INFAQ/SEDEKAH AMANAH ASTRA6007Sumbawa61058431362290708ASTRAPAY981302092100002276304C9C2");
+    }
 }
