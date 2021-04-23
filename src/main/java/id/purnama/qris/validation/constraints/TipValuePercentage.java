@@ -24,7 +24,7 @@ public @interface TipValuePercentage {
      *
      * @return String
      */
-    String message() default "Value yang digunakan berkisar antara “00.01” dan “99.99”";
+    String message() default "Value yang digunakan berkisar antara 00.01 dan 99.99";
 
     /**
      *

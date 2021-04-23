@@ -34,7 +34,7 @@ public @interface TransactionAmount {
      *
      * @return String
      */
-    String message() default "Transaction Amount Valuenya tidak boleh “0”, nilai yang digunakan harus digit “0” hingga ”9” dan tidak bernilai negatif.";
+    String message() default "Transaction Amount Valuenya tidak boleh 0, nilai yang digunakan harus digit 0 hingga 9 dan tidak bernilai negatif.";
 
     /**
      *

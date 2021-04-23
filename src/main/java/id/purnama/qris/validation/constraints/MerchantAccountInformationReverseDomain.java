@@ -24,7 +24,7 @@ public @interface MerchantAccountInformationReverseDomain {
      *
      * @return String
      */
-    String message() default "Reverse Domain pada ID “26”-“45” dengan sub ID “00” harus memiliki nilai default “00” atau dapat berisi informasi reverse domain-nya.";
+    String message() default "Reverse Domain pada ID 26-45 dengan sub ID 00 harus memiliki nilai default 00 atau dapat berisi informasi reverse domain-nya.";
 
     /**
      *

@@ -24,7 +24,7 @@ public @interface MerchantAccountInformationPanIsNumber {
      *
      * @return String
      */
-    String message() default "Merchant Account Information field {id} must min:{min} and max:{max} characters long";
+    String message() default "PAN should be a number";
 
     /**
      *

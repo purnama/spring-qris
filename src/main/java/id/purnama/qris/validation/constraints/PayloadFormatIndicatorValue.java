@@ -24,7 +24,7 @@ public @interface PayloadFormatIndicatorValue {
      *
      * @return String
      */
-    String message() default "Payload Format Indicator wajib memiliki Value “01”.";
+    String message() default "Payload Format Indicator wajib memiliki Value 01.";
 
     /**
      *

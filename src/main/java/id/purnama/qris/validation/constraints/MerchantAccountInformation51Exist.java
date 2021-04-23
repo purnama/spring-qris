@@ -24,7 +24,7 @@ public @interface MerchantAccountInformation51Exist {
      *
      * @return String
      */
-    String message() default "ID “51” wajib ditampilkan jika Value dari Point of Initiation Method “11”.";
+    String message() default "ID 51 wajib ditampilkan jika Value dari Point of Initiation Method 11.";
 
     /**
      *
