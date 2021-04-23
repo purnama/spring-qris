@@ -24,7 +24,7 @@ public @interface AdditionalDataFieldAsterisk {
      *
      * @return String
      */
-    String message() default "Jika ditampilkan, konten dari data object ID \"01\" - \"08\" wajib berupa \"***\" (tiga karakter asterisk) atau Value yang telah didefinisi oleh merchant.";
+    String message() default "Jika ditampilkan, konten dari data object ID 01 - 08 wajib berupa '***' (tiga karakter asterisk) atau Value yang telah didefinisi oleh merchant.";
 
     /**
      *

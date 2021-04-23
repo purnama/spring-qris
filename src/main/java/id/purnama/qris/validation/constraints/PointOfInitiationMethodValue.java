@@ -30,7 +30,7 @@ public @interface PointOfInitiationMethodValue {
      *
      * @return String
      */
-    String message() default "Point of Initiation Method harus berisi Value \"11\" atau \"12\".";
+    String message() default "Point of Initiation Method harus berisi Value 11 atau 12.";
 
     /**
      *

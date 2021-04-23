@@ -37,7 +37,7 @@ public @interface AdditionalConsumerDataRequest {
      *
      * @return String
      */
-    String message() default "Jika ditampilkan Additional Consumer Data Request (ID \"09\") wajib berisi kombinasi karakter seperti \"A\", \"M\" dan/atau \"E\"";
+    String message() default "Jika ditampilkan Additional Consumer Data Request (ID 09) wajib berisi kombinasi karakter seperti A, M dan/atau E";
 
     /**
      *

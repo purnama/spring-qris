@@ -24,7 +24,7 @@ public @interface MerchantAccountInformationExist {
      *
      * @return String
      */
-    String message() default "Setidaknya satu data object Merchant Account Information dari \"02\" - \"51\" harus ditampilkan.";
+    String message() default "Setidaknya satu data object Merchant Account Information dari 02 - 51 harus ditampilkan.";
 
     /**
      *

@@ -26,7 +26,7 @@ public @interface PayloadFormatIndicatorFirstPosition {
      *
      * @return String
      */
-    String message() default "Payload Format Indicator (ID \"00\") harus menjadi urutan pertama data object dalam QR Code.";
+    String message() default "Payload Format Indicator (ID 00) harus menjadi urutan pertama data object dalam QR Code.";
 
     /**
      *

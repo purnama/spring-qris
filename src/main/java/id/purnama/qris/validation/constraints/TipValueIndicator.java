@@ -31,7 +31,7 @@ public @interface TipValueIndicator {
      *
      * @return String
      */
-    String message() default "Tip Indicator wajib mengandung Value dari \"01\", \"02\" atau \"03\".";
+    String message() default "Tip Indicator wajib mengandung Value dari 01, 02 atau 03.";
 
     /**
      *

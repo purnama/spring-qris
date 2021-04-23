@@ -26,7 +26,7 @@ public @interface MandatoryField {
      *
      * @return String
      */
-    String message() default "Field \"{id}\" is mandatory";
+    String message() default "Field {id} is mandatory";
 
     /**
      *

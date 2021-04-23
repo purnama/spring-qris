@@ -23,7 +23,7 @@ public @interface CharLength {
      *
      * @return String
      */
-    String message() default "Field from \"{from}\" to \"{to}\" have min:{min} and max:{max} characters long.";
+    String message() default "Field from {from} to {to} have min:{min} and max:{max} characters long.";
 
     /**
      *

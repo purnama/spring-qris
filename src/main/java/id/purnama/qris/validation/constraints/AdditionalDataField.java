@@ -25,7 +25,7 @@ public @interface AdditionalDataField {
      *
      * @return String
      */
-    String message() default "Data objects—Additional Data Field Template (ID \"62\") jika ditampilkan, minimal berisi satu data object.";
+    String message() default "Data objects—Additional Data Field Template (ID 62) jika ditampilkan, minimal berisi satu data object.";
 
     /**
      *

@@ -41,7 +41,7 @@ public @interface AdditionalDataFieldCharLength {
      *
      * @return String
      */
-    String message() default "ID 62 field from \"{from}\" to \"{to}\" have min:{min} and max:{max} characters long.";
+    String message() default "ID 62 field from {from} to {to} have min:{min} and max:{max} characters long.";
 
     /**
      *

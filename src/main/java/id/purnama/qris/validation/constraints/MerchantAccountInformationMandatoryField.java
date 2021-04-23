@@ -26,7 +26,7 @@ public @interface MerchantAccountInformationMandatoryField {
      *
      * @return String
      */
-    String message() default "Merchant Account Information field \"{id}\" is mandatory";
+    String message() default "Merchant Account Information field {id} is mandatory";
 
     /**
      *

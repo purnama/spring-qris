@@ -26,7 +26,7 @@ public @interface MerchantAccountInformationCharLength {
      *
      * @return String
      */
-    String message() default "Merchant Account Information field \"{id}\" have min:{min} and max{max} characters long.";
+    String message() default "Merchant Account Information field {id} have min:{min} and max{max} characters long.";
 
     /**
      *
