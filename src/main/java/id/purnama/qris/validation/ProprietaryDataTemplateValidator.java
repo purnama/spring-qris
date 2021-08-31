@@ -2,6 +2,8 @@ package id.purnama.qris.validation;
 
 import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.ProprietaryDataTemplate;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -22,6 +24,8 @@ import java.util.Map;
  *     </tr>
  * </table>
  */
+@Builder
+@NoArgsConstructor
 public class ProprietaryDataTemplateValidator implements ConstraintValidator<ProprietaryDataTemplate, QrisDataObject> {
 
     @Override
@@ -29,12 +33,8 @@ public class ProprietaryDataTemplateValidator implements ConstraintValidator<Pro
         if (value.getIntId().equals(62) && value.getTemplateMap().containsKey(99)) {
             Map<Integer, QrisDataObject> qrisDataObjectMap = value.getTemplateMap().get(99).getTemplateMap();
             try {
-                if (qrisDataObjectMap.get(0).getValue().length() > 32) {
-                    return false;
-                }
-                if (qrisDataObjectMap.get(1).getValue().length() > 81) {
-                    return false;
-                }
+                if (qrisDataObjectMap.get(0).getValue().length() > 32) return false;
+                if (qrisDataObjectMap.get(1).getValue().length() > 81) return false;
             } catch (NullPointerException ex) {
                 return false;
             }

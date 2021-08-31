@@ -2,11 +2,15 @@ package id.purnama.qris.validation;
 
 import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.MerchantAccountInformation2To45Exist;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Map;
 
+@Builder
+@NoArgsConstructor
 public class MerchantAccountInformation2To45ExistValidator implements ConstraintValidator<MerchantAccountInformation2To45Exist, Map<Integer, QrisDataObject>> {
 
     @Override

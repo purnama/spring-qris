@@ -2,6 +2,8 @@ package id.purnama.qris.validation;
 
 import id.purnama.qris.object.QrisDataObject;
 import id.purnama.qris.validation.constraints.TipValueIndicator;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -17,6 +19,8 @@ import java.util.Map;
  * </ul>
  * Catatan: Walaupun Transaction Amount (ID “54”) tidak tersedia pada QR Code maka data object ini boleh ditampilkan.
  */
+@Builder
+@NoArgsConstructor
 public class TipValueIndicatorValidator implements ConstraintValidator<TipValueIndicator, Map<Integer, QrisDataObject>> {
 
     @Override
