@@ -51,6 +51,7 @@ class TransactionCurrencyValidatorTest {
     void isValidTestIdFound(){
         templateMap.put(53, new QrisDataObject("53", "03", "360"));
         templateMap.put(58, new QrisDataObject("58", "02", "ID"));
+
         assertTrue(this.transactionCurrencyValidator.isValid(templateMap, constraintValidatorContext));
     }
 }
